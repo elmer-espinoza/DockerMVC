@@ -1,0 +1,86 @@
+﻿// DOCKER HUB ---------------------------------------------------------------------------------------------------------------------
+
+docker login --username "elmerespinoza" --password "M@traquer4"
+docker ps
+docker images
+docker tag dockermvc:dev elmerespinoza/dockermvc
+docker images
+docker push elmerespinoza/dockermvc
+docker pull elmerespinoza/dockermvc:latest
+
+
+// DOCKER WEB APP ON DOCKER -------------------------------------------------------------------------------------------------------
+
+docker create --name "DockerMVC" -p 80:80 elmerespinoza/dockermvc:latest
+docker images -a
+docker ps -a
+docker start "DockerMVC"
+docker rm "DockerMVC"
+docker rm "1af1f946296a"
+docker rmi "elmerespinoza/dockermvc"
+docker run --rm -p 5000:5000 -p 5001:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=http://+:5000 elmerespinoza/dockermvc
+docker run -p 5000:5000 -p 5001:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=http://+:5000 elmerespinoza/dockermvc
+docker run -p 5000:5000 -p 5001:5001 -e ASPNETCORE_HTTP_PORT=https://+:5001 -e ASPNETCORE_URLS=https://+:443;http://+:80 ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=false ASPNETCORE_ENVIRONMENT=Development DOTNET_USE_POLLING_FILE_WATCHER=1 DOTNET_RUNNING_IN_CONTAINER=true DOTNET_VERSION=7.0.4 ASPNET_VERSION=7.0.4 elmerespinoza/dockermvc 
+docker run -p 5000:5000 -p 5001:5001 -e ASPNETCORE_HTTP_PORT=https://+:443;http://+:80 -e ASPNETCORE_URLS=https://+:443 elmerespinoza/dockermvc:latest ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=false ASPNETCORE_ENVIRONMENT=Development DOTNET_USE_POLLING_FILE_WATCHER=1 DOTNET_RUNNING_IN_CONTAINER=true DOTNET_VERSION=7.0.4 ASPNET_VERSION=7.0.4 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+docker run -p 5000:5000 -p 5001:5001 -e ASPNETCORE_HTTP_PORT=https://+:443 -e ASPNETCORE_URLS=https://+:443 elmerespinoza/dockermvc:latest ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=false ASPNETCORE_ENVIRONMENT=Development DOTNET_USE_POLLING_FILE_WATCHER=1 DOTNET_RUNNING_IN_CONTAINER=true DOTNET_VERSION=7.0.4 ASPNET_VERSION=7.0.4 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+docker run --hostname=2f9e9b4e4ad7 --mac-address=02:42:ac:11:00:02 --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 7001:443 -p 7000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --hostname=2f9e9b4e4ad7 --mac-address=02:42:ac:11:00:02 --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 7001:443 -p 7000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Maricarmen" --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 7001:443 -p 7000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Muriel"     --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 8001:443 -p 8000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Maricarmen" --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=https://+:443 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 7001:443 -p 7000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Muriel"     --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=https://+:443 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 8001:443 -p 8000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Maricarmen" --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 7001:443 -p 7000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d dockermvc:latest
+docker run --name "Muriel"     --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 8001:443 -p 8000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d dockermvc:latest
+docker run --name "Mariana"    --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 9001:443 -p 9000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d dockermvc:latest
+docker run --name "Mychelle"   --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 9001:443 -p 9000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+docker run --name "Yadira"     --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=ASPNETCORE_URLS=http://+:80 --env=DOTNET_RUNNING_IN_CONTAINER=true --env=DOTNET_VERSION=7.0.4 --env=ASPNET_VERSION=7.0.4 --workdir=/app -p 9001:443 -p 9000:80 --label='com.microsoft.created-by=visual-studio' --label='com.microsoft.visual-studio.project-name=DockerMVC' --runtime=runc -d elmerespinoza/dockermvc:latest
+
+docker rename –help.
+docker rename Yadira WebAppMVC
+
+docker stop "Maricarmen"
+docker stop "Muriel"
+docker rm "Maricarmen"
+docker rm "Muriel"
+
+
+
+// DOCKER SQL SERVER ON DOCKER ----------------------------------------------------------------------------------------------------
+
+docker pull mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=P@ssw0rd" -p 14330:1433 --name SQLDocker --hostname SQLDocker -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=P@ssw0rd" -p 1433:1433 --name SQLDocker -d mcr.microsoft.com/mssql/server:2022-latest
+
+docker exec -it SQLDocker  "bash"
+docker exec -it SQLDocker /bin/sh
+
+/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'P@ssw0rd'
+
+docker pull mcr.microsoft.com/mssql/server
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssw0rd123' -p 1433:1433 --name SQLDocker --hostname localhost -d mcr.microsoft.com/mssql/server
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssw0rd123' -p 14330:1433 --name SQLDB_Docker -d mcr.microsoft.com/mssql/server
+
+
+docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password123' -p 1433:1433 --name SQLServerDocker -d mcr.microsoft.com/mssql/server:2019-latest
+docker exec -it SQLServerDocker bash
+/opt/mssql-tools/bin/sqlcmd -S elmer,1433 -U SA -P Password123
+
+
+docker pull mcr.microsoft.com/mssql/server
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssw0rd123' -p 14330:1433 --name SQLSvrDocker -d mcr.microsoft.com/mssql/server
+docker exec -it SQLSvrDocker bash
+/opt/mssql-tools/bin/sqlcmd -S elmer,14330 -U SA -P P@ssw0rd123
+
+
+docker run -it --memory="4g" ubuntu
+docker run -it --memory="4g" --memory-swap="2g" ubuntu
+docker run -it --memory="4g" --memory-reservation="750m" ubuntu
+docker run -it --cpus="1.0" ubuntu 
+
+
+
+
+
+
+
